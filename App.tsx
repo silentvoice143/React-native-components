@@ -1,8 +1,17 @@
 import React from 'react';
-import {StyleSheet, Text, View, Pressable, SafeAreaView} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+} from 'react-native';
 import {LineChart} from 'react-native-chart-kit';
 import {Svg, Defs, LinearGradient, Stop, Rect} from 'react-native-svg';
 import SimpleLineChart from './components/graphs/SimpleLineChart';
+import ScrollableLineChart from './components/graphs/ScrollableLineChart';
+import AudioVisual from './components/audio/AudioVisualizer';
 
 const temperatureChartData = {
   labels: [
@@ -47,9 +56,26 @@ const gradientColors = ['#FF0000', '#00FF00'];
 
 const App = () => {
   return (
-    <View style={{flex: 1, width: '100%'}}>
+    <ScrollView style={{flex: 1, width: '100%'}}>
       <SimpleLineChart />
-    </View>
+      <ScrollableLineChart
+        data={[
+          {label: 'January 2', value: 300},
+          {label: 'February 3', value: 250},
+          {label: 'March 4', value: 200},
+          {label: 'April 5', value: 350},
+          {label: 'May 6', value: 400},
+          {label: 'June 7', value: 450},
+          {label: 'July 8', value: 500},
+          {label: 'July 8', value: 500},
+          {label: 'July 8', value: 500},
+          {label: 'July 8', value: 500},
+          {label: 'July 8', value: 500},
+        ]}
+        splitLabel={true}
+      />
+      <AudioVisual />
+    </ScrollView>
   );
 };
 
